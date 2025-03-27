@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+
+        .unit-option {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: left;
+            position: relative;
+        }
+
+        .unit-option:hover {
+            background-color: #ffe6e6;
+        }
+
+        .unit-option.selected {
+            border: 2px solid #ff4d4d;
+            background-color: #ffe6e6;
+            padding: 15px;
+        }
+
+        .discount {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 2px 5px;
+            font-size: 12px;
+            margin-left: 5px;
+            border-radius: 3px;
+        }
+
+        .price {
+            float: right;
+            font-weight: bold;
+        }
+
+        .options {
+            margin-top: 10px;
+            display: none;
+        }
+
+        .total {
+            text-align: right;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .add-to-cart {
+            background-color: #e91e63;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .add-to-cart:hover {
+            background-color: #d63d3d;
+        }
+        .most-popular {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background-color: #e91e63;
+            color: #fff;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>YAY! It’s BOGO</h2>
+
+        <div class="unit-option" id="unit1">
+            <input type="radio" name="unit" id="radio1">
+            <label for="radio1">1 Unit <span class="discount">10% Off</span></label>
+            <span class="price">$10.00 USD</span>
+            <div class="options">
+                <div>
+                    <label>Size:</label>
+                    <select>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                    </select>
+                    <label>Colour:</label>
+                    <select>
+                        <option>Black</option>
+                        <option>Red</option>
+                        <option>Blue</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="unit-option" id="unit2">
+            <input type="radio" name="unit" id="radio2">
+            <label for="radio2">2 Unit <span class="discount">20% Off</span></label>
+            <span class="price">$18.00 USD</span>
+            <div class="options">
+                <div>
+                    <label>Size:</label>
+                    <select>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                    </select>
+                    <label>Colour:</label>
+                    <select>
+                        <option>Black</option>
+                        <option>Red</option>
+                        <option>Blue</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Size:</label>
+                    <select>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                    </select>
+                    <label>Colour:</label>
+                    <select>
+                        <option>Black</option>
+                        <option>Red</option>
+                        <option>Blue</option>
+                    </select>
+                </div>
+                <div class="most-popular">Most Popular</div>
+            </div>
+        </div>
+
+        <div class="unit-option" id="unit3">
+            <input type="radio" name="unit" id="radio3">
+            <label for="radio3">3 Unit <span class="discount">30% Off</span></label>
+            <span class="price">$24.00 USD</span>
+            <div class="options">
+                <div>
+                    <label>Size:</label>
+                    <select>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                    </select>
+                    <label>Colour:</label>
+                    <select>
+                        <option>Black</option>
+                        <option>Red</option>
+                        <option>Blue</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Size:</label>
+                    <select>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                    </select>
+                    <label>Colour:</label>
+                    <select>
+                        <option>Black</option>
+                        <option>Red</option>
+                        <option>Blue</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Size:</label>
+                    <select>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                    </select>
+                    <label>Colour:</label>
+                    <select>
+                        <option>Black</option>
+                        <option>Red</option>
+                        <option>Blue</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="total">Free Delivery Total : $18.00 USD</div>
+
+        <button class="add-to-cart">+ Add to Cart</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const unitOptions = document.querySelectorAll(".unit-option");
+            const totalElement = document.querySelector(".total");  // Element showing the total price
+
+            // Prices for each unit option (you can adjust these values)
+            const prices = {
+                unit1: 10.00,  // Price for 1 unit
+                unit2: 18.00,  // Price for 2 units
+                unit3: 24.00   // Price for 3 units
+            };
+
+            // Function to update the total price
+            function updateTotal(price) {
+                totalElement.textContent = `Free Delivery Total : $${price.toFixed(2)} USD`;
+            }
+
+            // Initially select unit 2 when page loads
+            const defaultUnit = document.getElementById("unit2");
+            defaultUnit.classList.add("selected");
+            defaultUnit.querySelector("input[type='radio']").checked = true;
+            defaultUnit.querySelector(".options").style.display = "block";
+            updateTotal(prices.unit2);
+
+            unitOptions.forEach((option) => {
+                option.addEventListener("click", function () {
+                    // Remove selection from all options
+                    unitOptions.forEach((opt) => {
+                        opt.classList.remove("selected");
+                        let optionsDiv = opt.querySelector(".options");
+                        if (optionsDiv) {
+                            optionsDiv.style.display = "none";
+                        }
+                        let radio = opt.querySelector("input[type='radio']");
+                        if (radio) {
+                            radio.checked = false;
+                        }
+                    });
+
+                    // Select clicked option
+                    this.classList.add("selected");
+                    let optionsDiv = this.querySelector(".options");
+                    if (optionsDiv) {
+                        optionsDiv.style.display = "block";
+                    }
+                    let radio = this.querySelector("input[type='radio']");
+                    if (radio) {
+                        radio.checked = true;
+                    }
+
+                    // Update the total cost based on the selected unit
+                    const selectedUnitId = this.id;
+                    if (selectedUnitId === "unit1") {
+                        updateTotal(prices.unit1);
+                    } else if (selectedUnitId === "unit2") {
+                        updateTotal(prices.unit2);
+                    } else if (selectedUnitId === "unit3") {
+                        updateTotal(prices.unit3);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
